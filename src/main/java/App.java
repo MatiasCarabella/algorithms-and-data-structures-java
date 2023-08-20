@@ -1,7 +1,7 @@
 package main.java;
 
-import main.java.com.app.edificio.Edificio;
-import main.java.com.app.oficina.Oficina;
+import main.java.com.app.tp1.edificio.Edificio;
+import main.java.com.app.tp1.oficina.Oficina;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -23,5 +23,8 @@ public class App {
         } catch (NullPointerException e) {
             System.out.println("No se encontraron oficinas activas");
         }
+
+        /*** TRABAJO PRÁCTICO #2 ***/
+        
     }
 }
