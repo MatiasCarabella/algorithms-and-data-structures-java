@@ -3,6 +3,7 @@ package main.java.com.app.menu;
 import java.util.Scanner;
 import main.java.com.app.tp1.edificio.Edificio;
 import main.java.com.app.tp1.oficina.Oficina;
+import main.java.com.app.tp2.pila.Pila;
 
 public class Menu {
 
@@ -21,6 +22,8 @@ public class Menu {
       System.out.println("1. TP1: Algoritmos de búsqueda - Notación O");
       System.out.println("2. TP2: Estructuras de Datos - Pilas - Listas Enlazadas");
       System.out.println("0. Salir");
+      System.out.println("");
+      System.out.print("Opción: ");
       
       // Validación del input del usuario
       while (!sc.hasNextInt()) {
@@ -51,6 +54,13 @@ public class Menu {
         break;
       case 2:
         /*** TRABAJO PRÁCTICO #2 ***/
+        Pila pila = new Pila();
+        pila.apilar(10);
+        pila.apilar(40);
+        pila.apilar(3);
+        pila.verContenido();
+        System.out.println("Desapilando cima de la pila: " + pila.desapilar());
+        pila.verContenido();
         break;
       case 0:
         System.out.println("¡Hasta pronto!");
