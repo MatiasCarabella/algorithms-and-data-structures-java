@@ -59,7 +59,7 @@ public class Menu {
         pila.apilar(40);
         pila.apilar(3);
         pila.verContenido();
-        System.out.println("Desapilando cima de la pila: " + pila.desapilar());
+        System.out.println("Desapilando tope de la pila: " + pila.desapilar());
         pila.verContenido();
         break;
       case 0:

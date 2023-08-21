@@ -3,6 +3,9 @@ package main.java.com.app.tp2.pila;
 import main.java.com.app.tp2.nodo.Nodo;
 
 public class Pila {
+    // Nombre: Matías Carabella
+    // Legajo: VINF014247
+    // DNI: 40676324
 
     /**
      * La clase Pila posee 1 atributo:
