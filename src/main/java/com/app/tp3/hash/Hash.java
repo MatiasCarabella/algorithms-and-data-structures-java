@@ -5,7 +5,7 @@ public class Hash {
     // Legajo: VINF014247
     // DNI: 40676324
 
-    public int dato;
+    private int dato;
     public int estado; // 0 = Vacío, 1 = Eliminado, 2 = Ocupado
 
     public static int FuncionHash(int n, int m) {
@@ -17,7 +17,7 @@ public class Hash {
         return n % m;
         /**
          * Al utilizar la operación módulo con el tamaño de la tabla,
-         * nos aseguramos el obtener un valor dentro del rango de la tabla.
+         * nos aseguramos de obtener un valor dentro del rango de la tabla.
          * Ejemplos: Si m = 10
          * 7 % 10 = 7
          * 15 % 10 = 5
@@ -64,8 +64,9 @@ public class Hash {
              * o bien:
              * return n;
              * 
-             * El problema es que la función eliminaHash utiliza el resultado de buscaHash como índice
-             * para eliminar elementos, por ende a fin de que el programa compile retornaremos dicho índice.
+             * El problema es que la función eliminaHash utiliza el resultado de buscaHash 
+             * como índice para eliminar elementos, por ende a fin de que el programa compile 
+             * retornaremos dicho índice.
              */ 
             return FuncionHash(n, m);
         } else {
