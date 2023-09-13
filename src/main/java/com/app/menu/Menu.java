@@ -4,6 +4,7 @@ import java.util.Scanner;
 import main.java.com.app.tp1.edificio.Edificio;
 import main.java.com.app.tp1.oficina.Oficina;
 import main.java.com.app.tp2.pila.Pila;
+import main.java.com.app.tp3.hash.Hash;
 
 public class Menu {
 
@@ -21,6 +22,7 @@ public class Menu {
       System.out.println("Seleccione una opción:");
       System.out.println("1. TP1: Algoritmos de búsqueda - Notación O");
       System.out.println("2. TP2: Estructuras de Datos - Pilas - Listas Enlazadas");
+      System.out.println("3. TP3: Tablas Hash");
       System.out.println("0. Salir");
       System.out.println("");
       System.out.print("Opción: ");
@@ -61,6 +63,29 @@ public class Menu {
         pila.verContenido();
         System.out.println("Desapilando tope de la pila: " + pila.desapilar());
         pila.verContenido();
+        break;
+      case 3:
+        /*** TRABAJO PRÁCTICO #3 ***/
+        int i, elemento;
+
+        // Tabla Definida de 15
+        int m = 15;
+        Hash[] h = new Hash[m];
+        for (i = 0; i < m; i++) {
+            h[i] = new Hash();
+            h[i].estado = 0;
+        }
+
+        // Insertar elemento
+        Hash.insertaHash(h, m, 15);
+        Hash.insertaHash(h, m, 130);
+        Hash.insertaHash(h, m, 7);
+        Hash.insertaHash(h, m, 32);
+
+        //Buscando un elemento
+        elemento = 7;
+        i = Hash.buscaHash(h, m, elemento);
+        i = Hash.eliminaHash(h, m, 130);
         break;
       case 0:
         System.out.println("¡Hasta pronto!");
