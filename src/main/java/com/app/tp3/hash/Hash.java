@@ -18,7 +18,7 @@ public class Hash {
         /**
          * Al utilizar la operación módulo con el tamaño de la tabla,
          * nos aseguramos de obtener un valor dentro del rango de la tabla.
-         * Ejemplos: Si m = 10
+         * Ejemplo: Si m = 10,
          * 7 % 10 = 7
          * 15 % 10 = 5
          * 33 % 10 = 3
