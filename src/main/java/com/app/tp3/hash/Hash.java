@@ -38,7 +38,7 @@ public class Hash {
             }
         } while (j < m && !i);
         if (i) {
-            System.out.print("Elemento insertado con Éxito! \n");
+            System.out.print("Elemento " + n + " INSERTADO con Éxito en la posición " + j + "\n");
         } else {
             System.out.print("Tabla llena! \n");
         }
@@ -51,13 +51,13 @@ public class Hash {
          * n: valor buscado
          * debe devolver el valor mismo que busca (n) si lo encuentra, y -1 si no
          */
-
+        int j = FuncionHash(n, m);
         /**
          * Para saber si el dato 'n' se encuentra en la tabla 'h', usamos FuncionHash para
          * saber en qué índice de la tabla debería estar, y lo buscamos allí.
          * Si el dato presente en ese índice coincide con 'n', la búsqueda fue exitosa.
          */
-        if (h[FuncionHash(n, m)].dato == n) {
+        if (h[j].dato == n && h[j].estado == 2) {
             /**
              * Acorde al enunciado, en caso de encontrar 'n' debemos devolver el mismo 'n', es decir:
              * return h[FuncionHash(n, m)].dato;
@@ -68,9 +68,11 @@ public class Hash {
              * como índice para eliminar elementos, por ende a fin de que el programa compile 
              * retornaremos dicho índice.
              */ 
+            System.out.print("Elemento " + n + " ENCONTRADO en la posición " + j + " \n");
             return FuncionHash(n, m);
         } else {
             // Si no hubo match en la comparación, retornamos -1
+            System.out.print("Elemento " + n + " NO ENCONTRADO en la tabla hash \n");
             return -1;
         }
     }
@@ -81,7 +83,7 @@ public class Hash {
             return -1;
         } else {
             h[i].estado = 1;
-            System.out.print("Elemento Borrado \n");
+            System.out.print("Elemento " + n + " BORRADO en la posición " + i + "\n");
             return 1;
         }
     }
