@@ -17,7 +17,52 @@ public class Menu {
     sc = new Scanner(System.in);
   }
 
-  public void mostarMenu() throws Exception {
+  public void menuPrincipal() throws Exception {
+    int opcion;
+    do {
+      System.out.println("");
+      System.out.println("Seleccione la opción correspondiente a la asignatura:");
+      System.out.println("1. Algoritmos y Estructuras de Datos I");
+      System.out.println("2. Taller de Algoritmos y Estructuras de Datos I");
+      System.out.println("3. Algoritmos y Estructuras de Datos II");
+      System.out.println("4. Taller de Algoritmos y Estructuras de Datos II");
+      System.out.println("0. Salir");
+      System.out.println("");
+      System.out.print("Opción: ");
+
+      // Validación del input del usuario
+      while (!sc.hasNextInt()) {
+        System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+        sc.next();
+      }
+      opcion = sc.nextInt();
+
+      switch (opcion) {
+      case 1:
+        /*** Algoritmos y Estructuras de Datos I ***/
+        menuAyED1();
+        break;
+      case 2:
+        /*** Taller de Algoritmos y Estructuras de Datos I ***/
+        menuTAyED1();
+        break;
+      case 3:
+        /*** Algoritmos y Estructuras de Datos II ***/
+        menuAyED2();
+      case 4:
+        /*** Taller de Algoritmos y Estructuras de Datos II ***/
+        menuTAyED2();
+        break;
+      case 0:
+        System.out.println("¡Hasta pronto!");
+        break;
+      default:
+        System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+      }
+    } while (opcion != 0);
+  }
+
+  public void menuAyED1() throws Exception {
     int opcion;
     do {
       System.out.println("");
@@ -115,6 +160,72 @@ public class Menu {
         System.out.println("Opción inválida, por favor inténtalo nuevamente.");
       }
     } while (opcion != 0);
+  }
+
+  public void menuTAyED1() throws Exception {
+    int opcion;
+    do {
+      System.out.println("");
+      System.out.println("Seleccione una opción:");
+      System.out.println("1. TP1: Manejo de objetos, arreglos y excepciones");
+      System.out.println("0. Salir");
+      System.out.println("");
+      System.out.print("Opción: ");
+
+      // Validación del input del usuario
+      while (!sc.hasNextInt()) {
+        System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+        sc.next();
+      }
+      opcion = sc.nextInt();
+
+      switch (opcion) {
+      case 1:
+        /*** TRABAJO PRÁCTICO #1 ***/
+        int[] conteos = new int[26]; 
+        Scanner teclado = new Scanner(System.in); 
+    
+        //Leer palabra del usuario
+        System.out.print("Ingrese una palabra (por favor, sólo letras): "); 
+        String palabra = teclado.nextLine(); 
+    
+        //Convierte a mayusc.
+        palabra = palabra.toUpperCase(); 
+    
+        //Cuenta la frecuencia de cada letra...
+        try {
+          for (int i=0; i < palabra.length(); i++) {
+          conteos[palabra.charAt(i)-'A']++; 
+        }
+        } catch (ArrayIndexOutOfBoundsException e) {
+          // TODO: handle exception
+          System.out.println("EXCEPTION");
+        }
+        
+
+        //imprimir frecuencias...
+        System.out.println(); 
+        for (int i=0; i < conteos.length; i++) {
+            if (conteos [i] != 0) {
+              System.out.println((char)(i +'A') + ": " + conteos[i]);
+            }
+        }
+        break;
+      case 0:
+        System.out.println("¡Hasta pronto!");
+        break;
+      default:
+        System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+      }
+    } while (opcion != 0);
+  }
+
+  public void menuAyED2() {
+    System.out.println("Work in progress");
+  }
+
+  public void menuTAyED2() {
+    System.out.println("Work in progress");
   }
 
   private static void MostrarArray(int arr[]) {
