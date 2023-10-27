@@ -193,13 +193,14 @@ public class Menu {
         palabra = palabra.toUpperCase(); 
     
         //Cuenta la frecuencia de cada letra...
+        char ultimoCaracter = '0';
         try {
           for (int i=0; i < palabra.length(); i++) {
-          conteos[palabra.charAt(i)-'A']++; 
-        }
+            ultimoCaracter = palabra.charAt(i);
+            conteos[palabra.charAt(i)-'A']++; 
+          }
         } catch (ArrayIndexOutOfBoundsException e) {
-          // TODO: handle exception
-          System.out.println("EXCEPTION");
+          System.out.println("No es un caracter: '" + ultimoCaracter + "'");
         }
         
 
