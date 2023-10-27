@@ -185,26 +185,34 @@ public class Menu {
         int[] conteos = new int[26]; 
         Scanner teclado = new Scanner(System.in); 
     
-        //Leer palabra del usuario
+        // Leer palabra del usuario
         System.out.print("Ingrese una palabra (por favor, sólo letras): "); 
         String palabra = teclado.nextLine(); 
     
-        //Convierte a mayusc.
+        // Convierte a mayúsculas
         palabra = palabra.toUpperCase(); 
     
-        //Cuenta la frecuencia de cada letra...
-        char ultimoCaracter = '0';
+        /**
+         * Inicializamos la variable ultimoCaracter, que almacenará, justamente,
+         * el último caracter leído de la palabra, para así poder dar un mensaje
+         * descriptivo en caso de Excepción.
+         */
+        char ultimoCaracter = '.';
+        /*
+         * Cuenta la frecuencia de cada letra, lo englobamos dentro de una estructura try-catch
+         * para manejar las Excepiones que puedan surgir.
+         */
         try {
           for (int i=0; i < palabra.length(); i++) {
             ultimoCaracter = palabra.charAt(i);
-            conteos[palabra.charAt(i)-'A']++; 
+            conteos[ultimoCaracter-'A']++; 
           }
         } catch (ArrayIndexOutOfBoundsException e) {
+          // En caso de Excepción, mostramos el ultimoCaracter leído, causante de la Excepcion
           System.out.println("No es un caracter: '" + ultimoCaracter + "'");
         }
         
-
-        //imprimir frecuencias...
+        // Imprimir frecuencias...
         System.out.println(); 
         for (int i=0; i < conteos.length; i++) {
             if (conteos [i] != 0) {
