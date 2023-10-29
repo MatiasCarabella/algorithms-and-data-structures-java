@@ -1,6 +1,6 @@
-package main.java.com.app.tp2.pila;
+package main.java.com.app.ayed1.tp2.pila;
 
-import main.java.com.app.tp2.nodo.Nodo;
+import main.java.com.app.ayed1.tp2.nodo.Nodo;
 
 public class Pila {
     // Nombre: Matías Carabella

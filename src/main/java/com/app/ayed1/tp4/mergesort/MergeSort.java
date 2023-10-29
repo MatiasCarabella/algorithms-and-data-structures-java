@@ -1,4 +1,4 @@
-package main.java.com.app.tp4.mergesort;
+package main.java.com.app.ayed1.tp4.mergesort;
 
 public class MergeSort {
   // Nombre: Matías Carabella

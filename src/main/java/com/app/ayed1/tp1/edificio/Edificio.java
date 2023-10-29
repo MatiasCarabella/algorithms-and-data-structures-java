@@ -1,8 +1,8 @@
-package main.java.com.app.tp1.edificio;
+package main.java.com.app.ayed1.tp1.edificio;
 
 import java.util.Random;
 
-import main.java.com.app.tp1.oficina.Oficina;
+import main.java.com.app.ayed1.tp1.oficina.Oficina;
 
 public class Edificio {
     private int pisos = 10;

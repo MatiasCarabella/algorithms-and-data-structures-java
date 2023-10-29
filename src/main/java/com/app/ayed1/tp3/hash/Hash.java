@@ -1,4 +1,4 @@
-package main.java.com.app.tp3.hash;
+package main.java.com.app.ayed1.tp3.hash;
 
 public class Hash {
     // Nombre: Matías Carabella

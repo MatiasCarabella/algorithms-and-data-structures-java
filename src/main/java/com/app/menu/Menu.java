@@ -1,12 +1,14 @@
 package main.java.com.app.menu;
 
 import java.util.Scanner;
-import main.java.com.app.tp1.edificio.Edificio;
-import main.java.com.app.tp1.oficina.Oficina;
-import main.java.com.app.tp2.pila.Pila;
-import main.java.com.app.tp3.hash.Hash;
-import main.java.com.app.tp4.mergesort.MergeSort;
-import main.java.com.app.tp4.quicksort.QuickSort;
+
+import main.java.com.app.ayed1.tp1.edificio.Edificio;
+import main.java.com.app.ayed1.tp1.oficina.Oficina;
+import main.java.com.app.ayed1.tp2.pila.Pila;
+import main.java.com.app.ayed1.tp3.hash.Hash;
+import main.java.com.app.ayed1.tp4.mergesort.MergeSort;
+import main.java.com.app.ayed1.tp4.quicksort.QuickSort;
+import main.java.com.app.ayed2.tp1.contador.Contador;
 
 public class Menu {
 
@@ -182,43 +184,115 @@ public class Menu {
       switch (opcion) {
       case 1:
         /*** TRABAJO PRÁCTICO #1 ***/
-        int[] conteos = new int[26]; 
-        Scanner teclado = new Scanner(System.in); 
-    
-        // Leer palabra del usuario
-        System.out.print("Ingrese una palabra (por favor, sólo letras): "); 
-        String palabra = teclado.nextLine(); 
-    
-        // Convierte a mayúsculas
-        palabra = palabra.toUpperCase(); 
-    
+        // Generamos un array de palabras que almacenará hasta 50 palabras.
+        String[] palabras = new String[50];
         /**
-         * Inicializamos la variable ultimoCaracter, que almacenará, justamente,
-         * el último caracter leído de la palabra, para así poder dar un mensaje
-         * descriptivo en caso de Excepción.
+         * Inicializamos también un contador que usaremos al momento de 
+         * ingresar nuevas palabras en la primera posición vacía del array,
+         * por eso lo inicializamos en 0.
          */
-        char ultimoCaracter = '.';
-        /*
-         * Cuenta la frecuencia de cada letra, lo englobamos dentro de una estructura try-catch
-         * para manejar las Excepiones que puedan surgir.
+        int cantidadPalabras = 0;
+        Scanner teclado = new Scanner(System.in);
+
+        // Leer una palabra del usuario
+        System.out.print("Ingrese una palabra (por favor, sólo letras): ");
+        String palabra = teclado.nextLine();
+
+        // Convertir a mayúsculas
+        palabra = palabra.toUpperCase();
+
+        /**
+         * Agregamos la palabra a nuestra lista de palabras
+         * e incrementamos en 1 nuestro contador de palabras ingresadas
          */
-        try {
-          for (int i=0; i < palabra.length(); i++) {
-            ultimoCaracter = palabra.charAt(i);
-            conteos[ultimoCaracter-'A']++; 
+        palabras[cantidadPalabras] = palabra;
+        cantidadPalabras++;
+
+        int opcionSubmenu;
+        do {
+          System.out.println("");
+          System.out.println("Seleccione una opción:");
+          System.out.println("1. Ingresar más palabras");
+          System.out.println("2. Listar palabras ingresadas");
+          System.out.println("3. Conteo de caracteres de una palabra");
+          System.out.println("0. Salir");
+          System.out.println("");
+          System.out.print("Opción: ");
+
+          // Validación del input del usuario
+          while (!teclado.hasNextInt()) {
+            System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+            System.out.print("Opción: ");
+            teclado.next();
           }
-        } catch (ArrayIndexOutOfBoundsException e) {
-          // En caso de Excepción, mostramos el ultimoCaracter leído, causante de la Excepcion
-          System.out.println("No es un caracter: '" + ultimoCaracter + "'");
-        }
-        
-        // Imprimir frecuencias...
-        System.out.println(); 
-        for (int i=0; i < conteos.length; i++) {
-            if (conteos [i] != 0) {
-              System.out.println((char)(i +'A') + ": " + conteos[i]);
+          opcionSubmenu = teclado.nextInt();
+
+          switch (opcionSubmenu) {
+          case 1:
+            // Leer palabra del usuario
+            System.out.print("Ingrese una palabra (por favor, sólo letras): ");
+            teclado.nextLine();
+            palabra = teclado.nextLine();
+            // Convertir a mayúsculas
+            palabra = palabra.toUpperCase();
+            // Agregamos la palabra a nuestra lista de palabras
+            palabras[cantidadPalabras] = palabra;
+            cantidadPalabras++;
+            break;
+          case 2:
+            System.out.print("\nPalabras ingresadas: \n");
+            for (int i = 0; i < palabras.length; i++) {
+              if (palabras[i] == null) {
+                break;
+              }
+              System.out.println((i+1) + ". " + palabras[i]);
             }
-        }
+            System.out.println("");
+            presionaEnterParaContinuar();
+            teclado.nextLine();
+            break;
+          case 3:
+            String opcionPalabra;
+            System.out.print("\nPalabras ingresadas: \n");
+            for (int i = 0; i < palabras.length; i++) {
+              if (palabras[i] == null) {
+                break;
+              }
+              System.out.println((i+1) + ". " + palabras[i]);
+            }
+
+            System.out.println("Ingresa el número de palabra sobre la cual deseas realizar el conteo de caracteres ");
+            System.out.println("");
+            System.out.print("Opción: ");
+            opcionPalabra = teclado.next();
+            /**
+             * Validación del input del usuario:
+             * - Debe ser un número
+             * - Debe ser una opción válida (entre 1 y cantidadPalabras)
+             */
+            while (!(isNumeric(opcionPalabra) && 
+                    Integer.parseInt(opcionPalabra) >=1 && 
+                    Integer.parseInt(opcionPalabra) <= cantidadPalabras) ) {
+              System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+              System.out.print("Opción: ");
+              opcionPalabra = teclado.next();
+            }
+            /**
+             * Nos traemos la palabra de la lista, su índice será la opción menos 1,
+             * puesto que el array comienza en 0
+             */
+            palabra = palabras[Integer.parseInt(opcionPalabra)-1];
+            System.out.println("Palabra elegida: " + palabra);
+            Contador.conteoDeFrecuencia(palabra);
+            presionaEnterParaContinuar();
+            break;
+          case 0:
+            System.out.println("¡Hasta pronto!");
+            break;
+          default:
+            System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+          }
+        } while (opcionSubmenu != 0);
         break;
       case 0:
         System.out.println("¡Hasta pronto!");
@@ -237,10 +311,29 @@ public class Menu {
     System.out.println("Work in progress");
   }
 
+  // Helper methods
   private static void MostrarArray(int arr[]) {
     int n = arr.length;
     for (int i = 0; i < n; ++i)
       System.out.print(arr[i] + " ");
     System.out.println();
+  }
+
+  private static void presionaEnterParaContinuar() {
+    System.out.println("Presiona ENTER para continuar...");
+    try {
+      System.in.read();
+    } catch (Exception e) {
+      System.out.println("Error");
+    }
+  }
+
+  public static boolean isNumeric(String str) { 
+    try {  
+      Double.parseDouble(str);  
+      return true;
+    } catch(NumberFormatException e){  
+      return false;  
+    }  
   }
 }

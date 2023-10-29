@@ -1,4 +1,4 @@
-package main.java.com.app.tp1.oficina;
+package main.java.com.app.ayed1.tp1.oficina;
 
 public class Oficina {
     private int nro;

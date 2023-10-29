@@ -1,4 +1,4 @@
-package main.java.com.app.tp2.nodo;
+package main.java.com.app.ayed1.tp2.nodo;
 
 public class Nodo {
     /**
