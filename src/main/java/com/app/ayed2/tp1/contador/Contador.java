@@ -32,4 +32,17 @@ public class Contador {
       }
     }
   }
+
+  public static int cantidadDeOcurrencias(String[] palabras, String palabra) {
+    int contador = 0;
+    for (int i = 0; i < palabras.length - 1; i++) {
+      if (palabras[i] == null) {
+        break;
+      }
+      if (palabras[i].equalsIgnoreCase(palabra)) {
+        contador += 1;
+      }
+    }
+    return contador;
+  }
 }

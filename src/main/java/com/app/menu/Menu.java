@@ -215,6 +215,7 @@ public class Menu {
           System.out.println("1. Ingresar más palabras");
           System.out.println("2. Listar palabras ingresadas");
           System.out.println("3. Conteo de caracteres de una palabra");
+          System.out.println("4. Conteo de ocurrencias de una palabra");
           System.out.println("0. Salir");
           System.out.println("");
           System.out.print("Opción: ");
@@ -284,6 +285,40 @@ public class Menu {
             palabra = palabras[Integer.parseInt(opcionPalabra)-1];
             System.out.println("Palabra elegida: " + palabra);
             Contador.conteoDeFrecuencia(palabra);
+            presionaEnterParaContinuar();
+            break;
+          case 4:
+            System.out.print("\nPalabras ingresadas: \n");
+            for (int i = 0; i < palabras.length; i++) {
+              if (palabras[i] == null) {
+                break;
+              }
+              System.out.println((i+1) + ". " + palabras[i]);
+            }
+    
+            System.out.println("Ingresa el número de palabra de la cual deseas realizar el conteo de ocurrencias.");
+            System.out.println("");
+            System.out.print("Opción: ");
+            opcionPalabra = teclado.next();
+            /**
+             * Validación del input del usuario:
+             * - Debe ser un número
+             * - Debe ser una opción válida (entre 1 y cantidadPalabras)
+             */
+            while (!(isNumeric(opcionPalabra) && 
+                    Integer.parseInt(opcionPalabra) >=1 && 
+                    Integer.parseInt(opcionPalabra) <= cantidadPalabras) ) {
+              System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+              System.out.print("Opción: ");
+              opcionPalabra = teclado.next();
+            }
+            /**
+             * Nos traemos la palabra de la lista, su índice será la opción menos 1,
+             * puesto que el array comienza en 0
+             */
+            palabra = palabras[Integer.parseInt(opcionPalabra)-1];
+            System.out.println("La palabra elegida, '" + palabra + "' se repite " +
+                              Contador.cantidadDeOcurrencias(palabras, palabra) + " veces.");
             presionaEnterParaContinuar();
             break;
           case 0:
