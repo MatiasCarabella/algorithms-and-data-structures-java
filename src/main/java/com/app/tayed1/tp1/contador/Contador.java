@@ -1,4 +1,4 @@
-package main.java.com.app.ayed2.tp1.contador;
+package main.java.com.app.tayed1.tp1.contador;
 
 public class Contador {
   public static void conteoDeFrecuencia(String palabra) {

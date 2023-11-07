@@ -8,7 +8,7 @@ import main.java.com.app.ayed1.tp2.pila.Pila;
 import main.java.com.app.ayed1.tp3.hash.Hash;
 import main.java.com.app.ayed1.tp4.mergesort.MergeSort;
 import main.java.com.app.ayed1.tp4.quicksort.QuickSort;
-import main.java.com.app.ayed2.tp1.contador.Contador;
+import main.java.com.app.tayed1.tp1.contador.Contador;
 
 public class Menu {
 
