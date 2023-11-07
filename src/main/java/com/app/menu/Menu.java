@@ -9,6 +9,9 @@ import main.java.com.app.ayed1.tp3.hash.Hash;
 import main.java.com.app.ayed1.tp4.mergesort.MergeSort;
 import main.java.com.app.ayed1.tp4.quicksort.QuickSort;
 import main.java.com.app.tayed1.tp1.contador.Contador;
+import main.java.com.app.tayed1.tp2.cola.Cola;
+import main.java.com.app.tayed1.tp2.pedido.Pedido;
+import main.java.com.app.tayed1.tp2.pilaarray.PilaArray;
 
 public class Menu {
 
@@ -172,7 +175,7 @@ public class Menu {
       System.out.println("");
       System.out.println("Seleccione una opción:");
       System.out.println("1. TP1: Manejo de objetos, arreglos y excepciones");
-      System.out.println("TP2: Pilas y Colas");
+      System.out.println("2. TP2: Pilas y Colas");
       System.out.println("0. Salir");
       System.out.println("");
       System.out.print("Opción: ");
@@ -335,8 +338,8 @@ public class Menu {
         do {
           System.out.println("");
           System.out.println("Seleccione una opción:");
-          System.out.println("1. PILA");
-          System.out.println("2. COLA");
+          System.out.println("1. Menú de Pila");
+          System.out.println("2. Demo del funcionamiento de la Cola");
           System.out.println("0. Salir");
           System.out.println("");
           System.out.print("Opción: ");
@@ -350,9 +353,111 @@ public class Menu {
           opcionSubmenu = teclado.nextInt();
 
           switch (opcionSubmenu) {
+            case 1:
+            int maxTamaño = 10; // Tamaño máximo de la pila
+            PilaArray pila = new PilaArray(maxTamaño);
+    
+            int opcionMenuPila;
+            do {
+                System.out.println("\nMenú de Pila:");
+                System.out.println("1. Apilar elemento");
+                System.out.println("2. Retirar elemento");
+                System.out.println("3. Verificar si la pila está vacía");
+                System.out.println("4. Mostrar contenido de la Pila");
+                System.out.println("5. Salir");
+                System.out.print("Selecciona una opción: ");
+                opcionMenuPila = teclado.nextInt();
+    
+                switch (opcionMenuPila) {
+                    case 1:
+                        System.out.print("Ingresa el elemento a apilar: ");
+                        int elemento = teclado.nextInt();
+                        pila.push(elemento);
+                        System.out.println("Elemento " + elemento + " apilado.");
+                        break;
+                    case 2:
+                        if (!pila.estaVacia()) {
+                            int elementoDesapilado = pila.pop();
+                            System.out.println("Elemento " + elementoDesapilado + " retirado de la pila.");
+                        } else {
+                            System.out.println("La pila está vacía. No se pueden retirar elementos.");
+                        }
+                        break;
+                    case 3:
+                        if (pila.estaVacia()) {
+                            System.out.println("La pila está vacía.");
+                        } else {
+                            System.out.println("La pila no está vacía.");
+                        }
+                        break;
+                    case 4:
+                        pila.mostrar();
+                        break;
+                    case 5:
+                        System.out.println("Saliendo del programa.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Por favor, elige una opción válida.");
+                        break;
+                }
+            } while (opcion != 4);
+              break;
+            case 2: 
+              Cola cola = new Cola();
+
+              // Verificar que la cola recién creada está vacía
+              if (cola.estaVacia()) {
+                System.out.println("La cola está vacía");
+              }
+
+              // Generar pedidos de prueba
+              Pedido pedido1 = new Pedido(101, "Rodrigo Hernandez", 500);
+              Pedido pedido2 = new Pedido(102, "Hernán Calto", 125);
+              Pedido pedido3 = new Pedido(103, "Matías Carabella", 2500);
+              Pedido pedido4 = new Pedido(104, "Sofia Martinez", 400);
+              Pedido pedido5 = new Pedido(105, "Ayelén Vittora", 1000);
+              Pedido pedido6 = new Pedido(106, "Camila Leguizamon", 750);
+
+              // Agregar pedidos a la cola
+              cola.encolar(pedido1);
+              cola.encolar(pedido2);
+              cola.encolar(pedido3);
+              cola.encolar(pedido4);
+              cola.encolar(pedido5);
+              cola.encolar(pedido6);
+
+              // Mostrar el contenido de la cola
+              System.out.println("Contenido de la cola:");
+              cola.mostrarCola();
+
+              // Verificar el frente de la cola
+              if (!cola.estaVacia()) {
+                  Pedido frentePedido = cola.frente();
+                  System.out.println("Frente de la cola: Código: " + frentePedido.getCodigo() + 
+                                                      ", Cliente: " + frentePedido.getNombreCliente() +
+                                                      ", Cantidad de Ladrillos: " + frentePedido.getCantidadLadrillos());
+              }
+
+              // Desencolar algunos pedidos
+              Pedido pedidoDesencolado1 = cola.desencolar();
+              Pedido pedidoDesencolado2 = cola.desencolar();
+
+              // Mostrar el contenido de la cola después de desencolar
+              System.out.println("\nContenido de la cola después de desencolar:");
+              cola.mostrarCola();
+
+              // Por último, mostrar los pedidos desencolados
+              System.out.println("\nPedidos desencolados:");
+              System.out.println("Pedido 1: Código: " + pedidoDesencolado1.getCodigo() + 
+                                        ", Cliente: " + pedidoDesencolado1.getNombreCliente() + 
+                                        ", Cantidad de Ladrillos: " + pedidoDesencolado1.getCantidadLadrillos());
+              System.out.println("Pedido 2: Código: " + pedidoDesencolado2.getCodigo() + 
+                                        ", Cliente: " + pedidoDesencolado2.getNombreCliente() +
+                                        ", Cantidad de Ladrillos: " + pedidoDesencolado1.getCantidadLadrillos());
+              break;
             case 0:
-            System.out.println("¡Hasta pronto!");
-            break;
+              System.out.println("¡Hasta pronto!");
+              break;
           default:
             System.out.println("Opción inválida, por favor inténtalo nuevamente.");
           }
