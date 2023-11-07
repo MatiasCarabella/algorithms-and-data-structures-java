@@ -166,10 +166,13 @@ public class Menu {
 
   public void menuTAyED1() throws Exception {
     int opcion;
+    int opcionSubmenu;
+    Scanner teclado = new Scanner(System.in);
     do {
       System.out.println("");
       System.out.println("Seleccione una opción:");
       System.out.println("1. TP1: Manejo de objetos, arreglos y excepciones");
+      System.out.println("TP2: Pilas y Colas");
       System.out.println("0. Salir");
       System.out.println("");
       System.out.print("Opción: ");
@@ -192,7 +195,6 @@ public class Menu {
          * por eso lo inicializamos en 0.
          */
         int cantidadPalabras = 0;
-        Scanner teclado = new Scanner(System.in);
 
         // Leer una palabra del usuario
         System.out.print("Ingrese una palabra (por favor, sólo letras): ");
@@ -208,7 +210,6 @@ public class Menu {
         palabras[cantidadPalabras] = palabra;
         cantidadPalabras++;
 
-        int opcionSubmenu;
         do {
           System.out.println("");
           System.out.println("Seleccione una opción:");
@@ -322,6 +323,34 @@ public class Menu {
             presionaEnterParaContinuar();
             break;
           case 0:
+            System.out.println("¡Hasta pronto!");
+            break;
+          default:
+            System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+          }
+        } while (opcionSubmenu != 0);
+        break;
+      case 2
+      :
+        do {
+          System.out.println("");
+          System.out.println("Seleccione una opción:");
+          System.out.println("1. PILA");
+          System.out.println("2. COLA");
+          System.out.println("0. Salir");
+          System.out.println("");
+          System.out.print("Opción: ");
+
+          // Validación del input del usuario
+          while (!teclado.hasNextInt()) {
+            System.out.println("Opción inválida, por favor inténtalo nuevamente.");
+            System.out.print("Opción: ");
+            teclado.next();
+          }
+          opcionSubmenu = teclado.nextInt();
+
+          switch (opcionSubmenu) {
+            case 0:
             System.out.println("¡Hasta pronto!");
             break;
           default:
