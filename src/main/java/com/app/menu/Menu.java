@@ -333,8 +333,7 @@ public class Menu {
           }
         } while (opcionSubmenu != 0);
         break;
-      case 2
-      :
+      case 2:
         do {
           System.out.println("");
           System.out.println("Seleccione una opción:");
@@ -400,7 +399,7 @@ public class Menu {
                         System.out.println("Opción no válida. Por favor, elige una opción válida.");
                         break;
                 }
-            } while (opcion != 4);
+            } while (opcionMenuPila != 5);
               break;
             case 2: 
               Cola cola = new Cola();
