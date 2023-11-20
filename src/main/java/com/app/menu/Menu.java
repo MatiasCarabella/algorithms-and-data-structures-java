@@ -12,6 +12,8 @@ import main.java.com.app.tayed1.tp1.contador.Contador;
 import main.java.com.app.tayed1.tp2.cola.Cola;
 import main.java.com.app.tayed1.tp2.pedido.Pedido;
 import main.java.com.app.tayed1.tp2.pilaarray.PilaArray;
+import main.java.com.app.tayed1.tp3.listaproductos.ListaProductos;
+import main.java.com.app.tayed1.tp3.producto.Producto;
 
 public class Menu {
 
@@ -176,6 +178,7 @@ public class Menu {
       System.out.println("Seleccione una opción:");
       System.out.println("1. TP1: Manejo de objetos, arreglos y excepciones");
       System.out.println("2. TP2: Pilas y Colas");
+      System.out.println("3. TP3: Listas Enlazadas");
       System.out.println("0. Salir");
       System.out.println("");
       System.out.print("Opción: ");
@@ -461,6 +464,23 @@ public class Menu {
             System.out.println("Opción inválida, por favor inténtalo nuevamente.");
           }
         } while (opcionSubmenu != 0);
+        break;
+      case 3:
+        ListaProductos lista = new ListaProductos();
+
+        // Insertarmos productos de prueba
+        lista.insertarProducto(new Producto(1001, "Laptop Lenovo", 899.99));
+        lista.insertarProducto(new Producto(2522, "Smartphone Samsung", 599.99));
+        lista.insertarProducto(new Producto(311, "Monitor Dell", 249.99));
+        lista.insertarProducto(new Producto(4003, "Impresora HP", 129.99));
+        lista.insertarProducto(new Producto(105, "Teclado Logitech", 49.99));
+        // Ahora, intentamos insertar un producto con un código ya existente, lo cual arrojará un error:
+        lista.insertarProducto(new Producto(1001, "Laptop ASUS", 799.99));
+        
+        // Finalmente, listamos los productos, que estarán ordenados por código (ascendentemente)
+        System.out.println("");
+        System.out.println("Lista de productos:");
+        lista.listarProductos();
         break;
       case 0:
         System.out.println("¡Hasta pronto!");
