@@ -14,6 +14,8 @@ import main.java.com.app.tayed1.tp2.pedido.Pedido;
 import main.java.com.app.tayed1.tp2.pilaarray.PilaArray;
 import main.java.com.app.tayed1.tp3.listaproductos.ListaProductos;
 import main.java.com.app.tayed1.tp3.producto.Producto;
+import main.java.com.app.tayed1.tp4.equipo.Equipo;
+import main.java.com.app.tayed1.tp4.tabladeposiciones.TablaDePosiciones;
 
 public class Menu {
 
@@ -179,6 +181,7 @@ public class Menu {
       System.out.println("1. TP1: Manejo de objetos, arreglos y excepciones");
       System.out.println("2. TP2: Pilas y Colas");
       System.out.println("3. TP3: Listas Enlazadas");
+      System.out.println("4. TP4: QuickSort");
       System.out.println("0. Salir");
       System.out.println("");
       System.out.print("Opción: ");
@@ -255,7 +258,7 @@ public class Menu {
               }
               System.out.println((i+1) + ". " + palabras[i]);
             }
-            System.out.println("");
+
             presionaEnterParaContinuar();
             teclado.nextLine();
             break;
@@ -481,6 +484,26 @@ public class Menu {
         System.out.println("");
         System.out.println("Lista de productos:");
         lista.listarProductos();
+
+        presionaEnterParaContinuar();
+        break;
+      case 4:
+        TablaDePosiciones tabla = new TablaDePosiciones();
+
+        tabla.agregarEquipo(new Equipo("Liverpool", 66));
+        tabla.agregarEquipo(new Equipo("Arsenal", 50));
+        tabla.agregarEquipo(new Equipo("Manchester United", 58));
+        tabla.agregarEquipo(new Equipo("Manchester City", 68));
+        tabla.agregarEquipo(new Equipo("Tottenham Hotspur", 48));
+        tabla.agregarEquipo(new Equipo("Leicester City", 43));
+        tabla.agregarEquipo(new Equipo("Chelsea", 60));
+        tabla.agregarEquipo(new Equipo("West Ham United", 45));
+
+        System.out.println("\nTABLA DE POSICIONES");
+        System.out.println("-------------------");
+        tabla.mostrarTabla();
+
+        presionaEnterParaContinuar();
         break;
       case 0:
         System.out.println("¡Hasta pronto!");
@@ -508,7 +531,7 @@ public class Menu {
   }
 
   private static void presionaEnterParaContinuar() {
-    System.out.println("Presiona ENTER para continuar...");
+    System.out.println("\nPresiona ENTER para continuar...");
     try {
       System.in.read();
     } catch (Exception e) {
