@@ -2,7 +2,7 @@ package main.java.com.app.ayed2.tp2.arbol;
 
 import main.java.com.app.ayed2.tp2.nodobinario.NodoBinario;
 
-//Definición de la clase Arbol
+// Definición de la clase Arbol
 public class Arbol {
     public NodoBinario padre;
     public NodoBinario raiz;
