@@ -214,18 +214,18 @@ public class ArbolHuffman {
     // Método A desarrollar
     void GenerarCodigosDeHuffman_recursivo(NodoArbol AUXNODORAIZ, String codigo) {
         // Verificar si el nodo actual es una hoja (es un caracter)
-    if (AUXNODORAIZ.esdato) {
-        // Imprimir el caracter y su código Huffman
-        System.out.println("Carácter: " + AUXNODORAIZ.clave + " Código Huffman: " + codigo);
-        // Almacenar el código Huffman en la tabla de códigos
-        TablaHuffmanCodigos[(int) AUXNODORAIZ.clave] = codigo;
-    } else {
-        // Si el nodo no es una hoja, seguir recorriendo el árbol de manera recursiva
-        // Concatenar "0" al código actual y llamar recursivamente a la izquierda
-        GenerarCodigosDeHuffman_recursivo(AUXNODORAIZ.izquierda, codigo + "0");
-        // Concatenar "1" al código actual y llamar recursivamente a la derecha
-        GenerarCodigosDeHuffman_recursivo(AUXNODORAIZ.derecha, codigo + "1");
-    }
+        if (AUXNODORAIZ.esdato) {
+            // Imprimir el caracter y su código Huffman
+            System.out.println("Carácter: " + AUXNODORAIZ.clave + " Código Huffman: " + codigo);
+            // Almacenar el código Huffman en la tabla de códigos
+            TablaHuffmanCodigos[(int) AUXNODORAIZ.clave] = codigo;
+        } else {
+            // Si el nodo no es una hoja, seguir recorriendo el árbol de manera recursiva
+            // Concatenar "0" al código actual y llamar recursivamente a la izquierda
+            GenerarCodigosDeHuffman_recursivo(AUXNODORAIZ.izquierda, codigo + "0");
+            // Concatenar "1" al código actual y llamar recursivamente a la derecha
+            GenerarCodigosDeHuffman_recursivo(AUXNODORAIZ.derecha, codigo + "1");
+        }
     }
 
     byte stringbytetobyte(String strtobyte) {
@@ -332,15 +332,15 @@ public class ArbolHuffman {
     public void Comprimir(String NombreArchivo) {
         ArbolHuffman AH = new ArbolHuffman();
         if (AH != null) {
-            System.out.println("Cargando tabla de archivo..."); 
+            System.out.println("Cargando tabla de archivo...");
             AH.CargarTablaDeArchivo(NombreArchivo);
-            System.out.println("Creando lista..."); 
+            System.out.println("Creando lista...");
             AH.CrearListaDeArboles();
-            System.out.println("Procesando lista..."); 
+            System.out.println("Procesando lista...");
             AH.ProcesarListaDeArboles();
-            System.out.println("Generando códigos de Huffman recursivo..."); 
+            System.out.println("Generando códigos de Huffman recursivo...");
             AH.GenerarCodigosDeHuffman_recursivo(AH.NodoInicial.raiz, "");
-            System.out.println("Generando archivo comprimido..."); 
+            System.out.println("Generando archivo comprimido...");
             AH.GenerarArchivoComprimido(NombreArchivo, NombreArchivo + ".compress");
         }
     }
