@@ -19,6 +19,7 @@ import main.java.com.app.tayed1.tp4.tabladeposiciones.TablaDePosiciones;
 import main.java.com.app.ayed2.tp2.arbol.Arbol;
 import main.java.com.app.ayed2.tp2.nodobinario.NodoBinario;
 import main.java.com.app.ayed2.tp3.ABB.ABB;
+import main.java.com.app.ayed2.tp4.arbolhuffman.ArbolHuffman;
 
 public class Menu {
 
@@ -542,6 +543,7 @@ public class Menu {
             System.out.println("Seleccione una opción:");
             System.out.println("1. TP2: Árboles binarios");
             System.out.println("2. TP3: Árboles binarios de búsqueda (ABB)");
+            System.out.println("3. TP4: Árbol de Huffman");
             System.out.println("0. Salir");
             System.out.println("");
             System.out.print("Opción: ");
@@ -575,6 +577,7 @@ public class Menu {
                     System.out.println("\n\nLa altura del árbol es: " + Altura.toString());
                     break;
                 case 2:
+                    /*** TRABAJO PRÁCTICO #3 ***/
                     // Crear el objeto ABB
                     ABB ABB = new ABB();
                     /* ABB Ejemplo
@@ -612,6 +615,13 @@ public class Menu {
                     ret_val = ABB.buscar(12);
                     System.out.println("Clave 12 en el ABB: " + ret_val);
 
+                    break;
+                case 3:
+                    /*** TRABAJO PRÁCTICO #4 ***/
+                    // Crear arbol de huffman
+                    ArbolHuffman AHuffman = new ArbolHuffman();
+                    // Cambiar el nombre del archivo por el archivo deseado
+                    AHuffman.Comprimir("prueba.txt");
                     break;
                 case 0:
                     System.out.println("¡Hasta pronto!");
